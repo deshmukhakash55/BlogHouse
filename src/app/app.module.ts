@@ -7,6 +7,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { ContentComponent } from './components/content/content.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchresultsComponent } from './components/searchresults/searchresults.component';
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
+import { FollowComponent } from './components/follow/follow.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { SearchresultsComponent } from './components/searchresults/searchresults
     NavComponent,
     ContentComponent,
     FooterComponent,
-    SearchresultsComponent
+    SearchresultsComponent,
+    UserprofileComponent,
+    FollowComponent
   ],
   imports: [
     BrowserModule,
