@@ -1,0 +1,29 @@
+.user-profile {
+    margin-left: 3%;
+}
+
+div.dropdown-menu {
+    margin-top: 6px;
+    margin-left: -125px;
+}
+
+button#btnGroupDrop1 {
+    border-radius: 100%;
+}
+
+.search-textbox {
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    margin-right: 0% !important;
+}
+
+.search-button {
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+}
+
+.dropdown-toggle { content: none }
+
+#navbarSupportedContent {
+    float: right;
+}
