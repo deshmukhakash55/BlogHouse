@@ -9,6 +9,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SearchresultsComponent } from './components/searchresults/searchresults.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { FollowComponent } from './components/follow/follow.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { FollowComponent } from './components/follow/follow.component';
     FooterComponent,
     SearchresultsComponent,
     UserprofileComponent,
-    FollowComponent
+    FollowComponent,
+    ProfileComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
