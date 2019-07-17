@@ -16,6 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ApiService } from './services/api.service';
 import { LoginService } from './services/login.service';
+import { BlogService } from './services/blog.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { LoginService } from './services/login.service';
   ],
   providers: [
     ApiService,
-    LoginService
+    LoginService,
+    BlogService
   ],
   bootstrap: [AppComponent]
 })

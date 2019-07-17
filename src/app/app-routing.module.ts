@@ -16,7 +16,7 @@ const routes: Routes = [
   {path : 'profile', component: ProfileComponent},
   {path : 'search/:text', component: SearchresultsComponent},
   {path : 'userprofile', component: UserprofileComponent},
-  {path : 'content', component: ContentComponent}
+  {path : 'content/:id', component: ContentComponent}
 ];
 
 @NgModule({

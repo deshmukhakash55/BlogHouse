@@ -41,6 +41,7 @@ export class ApiService {
     this.expiry = expiresin;
     this.tokenType = tokentype;
     this.isLoggedIn = true;
+    window.sessionStorage.setItem('refreshToken', this.refreshToken);
   }
 
   setRefreshTokenTime(refreshTime: Date) {
@@ -50,7 +51,7 @@ export class ApiService {
 
   refreshTokenFunction(): Observable<any> {
     const body = new HttpParams()
-      .set('refresh_token', this.refreshToken)
+      .set('refresh_token', window.sessionStorage.getItem('refreshToken'))
       .set('grant_type', 'refresh_token');
     const headers = {
       Authorization: 'Basic ' + btoa('devglan-client:devglan-secret'),
