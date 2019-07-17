@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-follow',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FollowComponent implements OnInit {
 
-  constructor() { }
+  constructor(public loginService: LoginService) { }
 
   ngOnInit() {
+    this.loginService.loginAndTokenCheck('follow');
   }
 
 }

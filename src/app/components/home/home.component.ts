@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
-import {Router} from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +8,10 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public apiService: ApiService) { }
+  constructor(public loginService: LoginService) { }
 
   ngOnInit() {
+    this.loginService.loginAndTokenCheck('home');
   }
 
 }

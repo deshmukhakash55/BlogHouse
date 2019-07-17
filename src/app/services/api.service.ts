@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from '../model/User';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
   baseUrl = 'http://localhost:8085/';
   accessToken = '';
   refreshToken = '';
@@ -42,11 +41,14 @@ export class ApiService {
     this.expiry = expiresin;
     this.tokenType = tokentype;
     this.isLoggedIn = true;
-    // tslint:disable-next-line: radix
-    window.setInterval(this.refreshTokenFunction, parseInt(this.expiry.toString()) * 1000 - 60);
   }
 
-  refreshTokenFunction() {
+  setRefreshTokenTime(refreshTime: Date) {
+    const currentDateMilliSeconds = new Date().getMilliseconds();
+    // window.setInterval(this.refreshTokenFunction, refreshTime.getMilliseconds() - currentDateMilliSeconds);
+  }
+
+  refreshTokenFunction(): Observable<any> {
     const body = new HttpParams()
       .set('refresh_token', this.refreshToken)
       .set('grant_type', 'refresh_token');
@@ -54,7 +56,7 @@ export class ApiService {
       Authorization: 'Basic ' + btoa('devglan-client:devglan-secret'),
       'Content-type': 'application/x-www-form-urlencoded'
     };
-    // return this.http.post('http://localhost:8085/' + 'oauth/token', body.toString, {headers});
+    return this.http.post('http://localhost:8085/' + 'oauth/token', body.toString(), {headers});
   }
 
 }

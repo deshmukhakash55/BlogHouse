@@ -2,8 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StoreModule } from '@ngrx/store';
-import { reducer } from './reducers/session.reducers';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +14,8 @@ import { FollowComponent } from './components/follow/follow.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { ApiService } from './services/api.service';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -35,12 +35,12 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    StoreModule.forRoot({
-      session: reducer
-    })
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
