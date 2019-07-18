@@ -29,6 +29,8 @@ export class LoginService {
           window.sessionStorage.setItem('expiry', tokenExpiryDate.toString());
         }
       }
+    } else {
+      this.router.navigate(['']);
     }
   }
 

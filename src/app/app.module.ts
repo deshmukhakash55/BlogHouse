@@ -41,7 +41,8 @@ import { BlogService } from './services/blog.service';
   providers: [
     ApiService,
     LoginService,
-    BlogService
+    BlogService,
+    NavComponent
   ],
   bootstrap: [AppComponent]
 })

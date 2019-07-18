@@ -17,26 +17,26 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="background: #333; color: white">Name</span>
                                 </div>
-                                <input type="text" aria-label="First name" class="form-control" disabled>
+                                <input type="text" aria-label="First name" class="form-control" [value]="firstName" disabled>
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                 </div>
-                                <input type="text" aria-label="Last name" class="form-control" disabled>
+                                <input type="text" aria-label="Last name" class="form-control" [value]="lastName" disabled>
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)='editEnable($event)'><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                 </div>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="background: #333; color: white">Email</span>
                                 </div>
-                                <input type="text" aria-label="First name" class="form-control" disabled>
+                                <input type="text" aria-label="First name" class="form-control" [value]="email" disabled>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="background: #333; color: white">Contact</span>
                                 </div>
-                                <input type="text" aria-label="First name" class="form-control" disabled>
+                                <input type="text" aria-label="First name" class="form-control" [value]="mobile" disabled>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -46,6 +46,10 @@
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                 </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <br>
+                                <button type="button" class="btn btn-success" style="margin-left: 85%;" disabled>Success</button>
                             </div>
                         </div>
                         <div class="col-md-12" style="margin-top: 1%;">

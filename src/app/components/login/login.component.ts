@@ -34,15 +34,9 @@ export class LoginComponent implements OnInit {
       window.sessionStorage.setItem('token', JSON.stringify(data));
       const dataJson = JSON.parse(JSON.stringify(data));
       this.apiService.setTokenData(dataJson.access_token, dataJson.refresh_token, dataJson.expires_in, dataJson.token_type);
-      console.log(window.sessionStorage.getItem('token'));
       const tokenExpiryDate = new Date();
       tokenExpiryDate.setSeconds(tokenExpiryDate.getSeconds() + (dataJson.expires_in));
       window.sessionStorage.setItem('expiry', tokenExpiryDate.toString());
-      console.log('tokenExpiry set to ' + tokenExpiryDate);
-      this.apiService.getCurrentUsername().subscribe(username => {
-        console.log(username);
-      });
-
       this.router.navigate(['home']);
     });
   }
@@ -50,6 +44,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginService.loginAndTokenCheck('');
     // window.sessionStorage.removeItem('token');
+    // window.sessionStorage.removeItem('username');
+    // window.sessionStorage.removeItem('user');
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
       password: ['', Validators.required]
