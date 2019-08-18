@@ -25,4 +25,17 @@ export class UserService {
     return this.http.post(this.baseUrl + 'search_user_by_username' + '/' + username.toString(), null, options);
   }
 
+  updateUser(user: any) {
+    const accessToken = JSON.parse(JSON.stringify(window.sessionStorage.getItem('token'))).access_token;
+    const tokenType = JSON.parse(JSON.stringify(window.sessionStorage.getItem('token'))).token_type;
+    const httpHeaders = new HttpHeaders({
+      'Content-Type' : 'application/json',
+      Authorization : tokenType + ' ' + accessToken
+    });
+    const options = {
+      headers: httpHeaders
+    };
+    return this.http.post(this.baseUrl + 'update_user' , user, options);
+  }
+
 }

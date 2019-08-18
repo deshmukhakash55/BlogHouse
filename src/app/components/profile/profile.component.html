@@ -7,7 +7,7 @@
                     <div class="row blogcontent">
                         <div class="col-md-4">
                             <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="../../../assets/profile.jpg" alt="Card image cap"/>
+                                <img class="card-img-top" src="{{ profilePic }}" alt="Card image cap"/>
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -17,13 +17,13 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="background: #333; color: white">Name</span>
                                 </div>
-                                <input type="text" aria-label="First name" class="form-control" [value]="firstName" disabled>
+                                <input type="text" aria-label="First name" class="form-control" [(ngModel)]="firstName" [disabled]="firstNameInput">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="buttonClicked($event,'firstName')" [disabled]="firstNameButton"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                 </div>
-                                <input type="text" aria-label="Last name" class="form-control" [value]="lastName" disabled>
+                                <input type="text" aria-label="Last name" class="form-control" [(ngModel)]="lastName" [disabled]="lastNameInput">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)='editEnable($event)'><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="buttonClicked($event,'lastName')" [disabled]="lastNameButton"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                 </div>
                             </div>
                             <div class="input-group mb-3">
@@ -42,14 +42,14 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" style="background: #333; color: white;">Description</span>
                                 </div>
-                                <textarea class="form-control" aria-label="With textarea" disabled></textarea>
+                                <textarea class="form-control" aria-label="With textarea" [disabled]="descriptionInput"></textarea>
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="buttonClicked($event,'description')" [disabled]="descriptionButton"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                 </div>
                             </div>
                             <div class="input-group mb-3">
                                 <br>
-                                <button type="button" class="btn btn-success" style="margin-left: 85%;" disabled>Success</button>
+                                <button type="button" class="btn btn-success" style="margin-left: 85%;" [disabled]="submitButtonDisabled" (click)="submitUpdatedProfile()">Submit</button>
                             </div>
                         </div>
                         <div class="col-md-12" style="margin-top: 1%;">

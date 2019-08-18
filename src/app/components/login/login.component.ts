@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     this.apiService.login(body.toString()).subscribe(data => {
       window.sessionStorage.setItem('token', JSON.stringify(data));
       const dataJson = JSON.parse(JSON.stringify(data));
+      console.log('Access token is ' + dataJson.access_token);
       this.apiService.setTokenData(dataJson.access_token, dataJson.refresh_token, dataJson.expires_in, dataJson.token_type);
       const tokenExpiryDate = new Date();
       tokenExpiryDate.setSeconds(tokenExpiryDate.getSeconds() + (dataJson.expires_in));

@@ -27,7 +27,6 @@ export class ApiService {
     // tslint:disable-next-line: max-line-length
     console.log('Making the request using ' + JSON.parse(window.sessionStorage.getItem('token')).access_token + ' ' + JSON.parse(window.sessionStorage.getItem('token')).refresh_token + ' ' + JSON.parse(window.sessionStorage.getItem('token')).token_type + ' ' + JSON.parse(window.sessionStorage.getItem('token')).expires_in);
     const httpHeaders = new HttpHeaders({
-      'Content-Type' : 'application/json',
       // tslint:disable-next-line: max-line-length
       Authorization : JSON.parse(window.sessionStorage.getItem('token')).token_type.toString() + ' ' + JSON.parse(window.sessionStorage.getItem('token')).access_token.toString()
     });
